@@ -1,0 +1,10 @@
+name: OGQuestMaster
+version: 1.0
+api-version: 1.13
+author: Schmostrong
+main: og.spigot.survival.questmaster.main.OGQuestMasterMain
+database: true
+commands:
+  ogquestadd:
+    usage: /ogquestadd <name> <resource type> <amount> <reward type> <amount>
+    description: Command is used to create a new quest, while setting what the quests demands of the player and what the reward is
