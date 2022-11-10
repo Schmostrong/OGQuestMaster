@@ -8,3 +8,6 @@ commands:
   ogquestadd:
     usage: /ogquestadd <name> <resource type> <amount> <reward type> <amount>
     description: Command is used to create a new quest, while setting what the quests demands of the player and what the reward is
+  ogquestspawnmaster:
+    usage: /ogquestspawnmaster
+    description: Command is used to spawn a QuestMaster holding several quests for the player

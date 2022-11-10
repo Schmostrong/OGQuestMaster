@@ -16,7 +16,8 @@ public class OGQuestAddCommand implements CommandExecutor {
                     if(isMinecraftMaterial(strings[2])){
                         if(isValidAmount(strings[1])){
                             if(isValidAmount(strings[3])){
-
+                                //Create new OGQuest and add to the currently loaded quests
+                                OGQuestMasterUtils.getInstance().addOGQuest(new OGQuest(strings[0], Integer.parseInt(strings[1]), strings[2], Integer.parseInt(strings[3])));
                             }else{
                                 commandSender.sendMessage("§7[§3OGQuestMaster§7] >> Please insert a valid amount of material you need to complete the quest");
                             }
@@ -38,10 +39,16 @@ public class OGQuestAddCommand implements CommandExecutor {
         return true;
     }
 
+    /**
+     * Function is used to check, if a given String can be parsed as a material existing in minecraft
+     *
+     * @param material - String representing the material to be checked
+     * @return - Boolean that is set to true or false, depending on the outcome of the check
+     */
     public boolean isMinecraftMaterial(String material){
         try{
             Material minecraftMaterial = Material.getMaterial(material);
-            if(material == null){
+            if(minecraftMaterial == null){
                 return false;
             }
             return true;
@@ -52,6 +59,12 @@ public class OGQuestAddCommand implements CommandExecutor {
         }
     }
 
+    /**
+     * Function is used to check, wheter a given String can be parsed as a valid number representing the amount of given materials
+     *
+     * @param amount - String that should be tried to parse as a numeric value
+     * @return - Boolean that is set to true or false, depending on the outcome of the check
+     */
     public boolean isValidAmount(String amount){
         try{
             int valueAmount = Integer.parseInt(amount);
